@@ -100,13 +100,15 @@ numberThree(array: array2)
 
 number(num: 4) //4
 
-func middleGrade(from dict: [String: Int?]) {
+func middleGrade(from dict: [String: Int?]) -> Double {
     let grades = dict.compactMap { $0.value }
     if grades.isEmpty {
         print("Никто не сдал")
+        return 0
     } else {
-        let average = grades.reduce(0, +) / grades.count
+        let average = Double(grades.reduce(0, +)) / Double(grades.count)
         print(average)
+        return average
     }
 }
 let dict1: [String: Int?] = ["A": 4, "B": 4, "C": 4]
